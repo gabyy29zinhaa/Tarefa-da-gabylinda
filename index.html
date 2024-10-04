@@ -6,7 +6,7 @@
     <title>Primeira parcial</title>
     <style>
         body {
-            background-color: pink;
+            background-color: yellow;
             display: flex;
             align-items: flex-start;
             height: 100px;
@@ -31,7 +31,7 @@
         .result {
             margin-top: 10px;
             padding: 10px;
-            background-color: #f9f9f9;
+            background-color: blue;
             border: 1px solid #ddd;
             min-height: 50px;
         }
@@ -73,7 +73,7 @@
             var numero = document.getElementById('contagemInput').value;
             let resultado = '';
             if (numero === '') {
-                resultado = 'Por favor, insira um número.';
+                resultado = 'Por favor, insira um númerozinho';
             } else {
                 for (let i = numero; i >= 0; i--) {
                     resultado += i + '<br>';
@@ -88,7 +88,7 @@
             var numero = document.getElementById('numeroTabuada').value;
             let resultado = '';
             if (numero === '') {
-                resultado = 'Por favor, insira um número.';
+                resultado = 'Por favor, insira um númerozinho.';
             } else {
                 for (let i = 1; i <= 10; i++) {
                     resultado += `${numero} x ${i} = ${numero * i}<br>`;
