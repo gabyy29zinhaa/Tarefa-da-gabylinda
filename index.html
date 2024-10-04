@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeira parcial</title>
+    <style>
+        body {
+            background-color: pink;
+            display: flex;
+            align-items: flex-start;
+            height: 100px;
+            gap: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            min-height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+  
+    <div class="container">
+        <h2>Contagem Regressiva</h2>
+        <label for="contagemInput">Digite um número:</label>
+        <input type="number" id="contagemInput" placeholder="Número">
+        <button onclick="contagemRegressiva()">Iniciar</button>
+        <div class="result" id="resultadoContagem"></div>
+    </div>
+
+  
+    <div class="container">
+        <h2>Tabuada</h2>
+        <label for="numeroTabuada">Digite um número:</label>
+        <input type="number" id="numeroTabuada" placeholder="Número">
+        <button onclick="calcularTabuada()">Calcular</button>
+        <div class="result" id="resultadoTabuada"></div>
+    </div>
+
+  
+    <div class="container">
+        <h2>Jogo: Adivinhe o Número Secreto</h2>
+        <p>Tente adivinhar o número entre 1 e 10!</p>
+        <input type="number" id="numeroSecreto" placeholder="Digite seu palpite">
+        <button onclick="adivinharNumero()">Enviar Palpite</button>
+        <button onclick="novoNumeroSecreto()">Novo Número Secreto</button>
+        <div class="result" id="resultadoJogo"></div>
+    </div>
+
+    <script>
+        // Contagem Regressiva
+        function contagemRegressiva() {
+            var numero = document.getElementById('contagemInput').value;
+            let resultado = '';
+            if (numero === '') {
+                resultado = 'Por favor, insira um número.';
+            } else {
+                for (let i = numero; i >= 0; i--) {
+                    resultado += i + '<br>';
+                }
+                resultado += 'Fim da contagem regressiva.';
+            }
+            document.getElementById('resultadoContagem').innerHTML = resultado;
+        }
+
+        // Tabuada
+        function calcularTabuada() {
+            var numero = document.getElementById('numeroTabuada').value;
+            let resultado = '';
+            if (numero === '') {
+                resultado = 'Por favor, insira um número.';
+            } else {
+                for (let i = 1; i <= 10; i++) {
+                    resultado += `${numero} x ${i} = ${numero * i}<br>`;
+                }
+                resultado += 'Fim da tabuada.';
+            }
+            document.getElementById('resultadoTabuada').innerHTML = resultado;
+        }
+
+        // Jogo: Adivinhe o Número Secreto
+        let numeroSecreto = Math.floor(Math.random() * 10) + 1;
+
+        function adivinharNumero() {
+            var palpite = document.getElementById('numeroSecreto').value;
+            let resultado = '';
+            if (palpite == numeroSecreto) {
+                resultado = 'Parabéns! Você acertou o número secreto!';
+            } else {
+                resultado = 'Errou! Tente novamente.';
+            }
+            document.getElementById('resultadoJogo').innerHTML = resultado;
+        }
+
+        function novoNumeroSecreto() {
+            numeroSecreto = Math.floor(Math.random() * 10) + 1;
+            document.getElementById('resultadoJogo').innerHTML = 'Novo número secreto gerado!';
+        }
+    </script>
+
+</body>
+</html>
